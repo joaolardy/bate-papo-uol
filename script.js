@@ -1,8 +1,8 @@
 const usuario = {name: ""}; //objeto usuario
 let mensagens = []; //array vazio que recebera as mensagens
-// definirUsuario();
-// setInterval(obterMensagens, 1000);
-obterMensagens();
+
+setInterval(obterMensagens, 5000);
+enterEnvia();
 
 //funcoes para obter e imprimir as mensagens via API axios
 function obterMensagens(){
@@ -10,7 +10,6 @@ function obterMensagens(){
     promessa.then(exibirMensagens);
     promessa.catch(tratarErro);
 }
-
 function exibirMensagens(resposta){
     mensagens = resposta.data;
     let caixaDeEntrada = document.querySelector('main');
@@ -25,6 +24,8 @@ function exibirMensagens(resposta){
         if(mensagens[i].type === 'message'){
             imprimirMensagem(mensagens[i], caixaDeEntrada)
         }
+        let fixa = document.querySelector('.fixa-scroll');
+        fixa.scrollIntoView({block: "end"});
     }
 }
 function imprimirStatus(mensagem, div){
@@ -32,7 +33,6 @@ function imprimirStatus(mensagem, div){
     <p class="hora">(${mensagem.time})</p>
     <p><span class="negrito">${mensagem.from}</span> ${mensagem.text}</p>
     </div>`;
-    div.scrollIntoView();
 }
 function imprimirMensagem(mensagem, div){
     div.innerHTML += `<div class="mensagem padrao">
@@ -40,22 +40,19 @@ function imprimirMensagem(mensagem, div){
         <p><span class="negrito">${mensagem.from}</span> para 
             <span class="negrito">${mensagem.to}</span>: ${mensagem.text}</p>
         </div>`;
-    div.scrollIntoView();
-}
+    }
 function imprimirMensagemReservadamente(mensagem, div){
     div.innerHTML += `<div class="mensagem reservadamente">
         <p class="hora">(${mensagem.time})</p>
         <p><span class="negrito">${mensagem.from}</span> reservadamente para 
             <span class="negrito">${mensagem.to}</span>: ${mensagem.text}</p>
         </div>`;
-    div.scrollIntoView();
 }
 //fim
 
 //funcoes para definicao do nome do usuario
 function definirUsuario(){
     let inputNome = document.querySelector('.input-nome');
-    console.log(inputNome);
     usuario.name = inputNome.value;
     const promessa = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', usuario);
     promessa.then(tratarSucesso);
@@ -64,6 +61,7 @@ function definirUsuario(){
 
 function tratarSucesso(){
     trocarTela();
+    setInterval(manterUsuario, 4500);
 }
 function trocarTela(){
     let telaInicial = document.querySelector('.tela-inicial');
@@ -78,4 +76,39 @@ function tratarErro(){
 }
 // fim
 
+//funcoes para manutencao do usuario
+function manterUsuario(){
+    axios.post('https://mock-api.driven.com.br/api/v6/uol/status', usuario);
+
+}
+
 //funcoes para mandar mensagem
+function enviarMensagem(){
+    let novaMensagem = {
+        from: "",
+        to: "Todos",
+        text: "",
+        type: "message"
+    }
+    novaMensagem.from = `${usuario.name}`;
+    let inputMensagem = document.querySelector('.input-mensagem');
+    novaMensagem.text = inputMensagem.value;
+    console.log(novaMensagem);
+    let promessa = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', novaMensagem);
+    promessa.then(obterMensagens);
+    promessa.catch(deuErrado);
+    inputMensagem.value = '';
+    console.log(inputMensagem.value);
+}
+function deuErrado(){
+    console.log('deuerrado');
+}
+function enterEnvia(){
+const inputMensagem = document.querySelector(".input-mensagem");
+inputMensagem.addEventListener("keyup", ({key}) => {
+    if (key === "Enter") {
+        enviarMensagem()
+        console.log("Ativou o Enter!")
+    }
+})
+}

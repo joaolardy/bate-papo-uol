@@ -24,8 +24,9 @@
                 <p class="hora">${mensagens[i].time}</p> <p class="name">${mensagens[i].name}</p><p class="text">${mensagens[i].text}</p>
             </div>
         </main>
+        <div class="fixa-scroll"></div>
         <footer>
-            <input placeholder="Escreva aqui..." type="text">
+            <input class="input-mensagem" placeholder="Escreva aqui..." maxlength="60" type="text">
             <div onclick="enviarMensagem()" class="icone-aviao">
                 <ion-icon name="paper-plane-outline"></ion-icon>
             </div>
@@ -36,11 +37,9 @@
             <div class="logo">
                 <img src="./images/logo-uol2.png" alt="logo uol">
             </div>
-            <input class="input-nome" placeholder="Digite seu nome" type="text">
+            <input class="input-nome" placeholder="Digite seu nome" maxlength="20" type="text">
             <p onclick="definirUsuario()" class="botao">Entrar</p>
         </div>
-    </div>
-    
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
