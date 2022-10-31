@@ -10,6 +10,40 @@
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <div class="tela-chat none">
+        <header>
+            <div class="logo">
+                <img src="./images/logo-uol.png" alt="logo uol">
+            </div>
+            <div class="icone-contatos">
+                <ion-icon name="people"></ion-icon>
+            </div>
+        </header>
+        <main>
+            <div class="mensagem">
+                <p class="hora">${mensagens[i].time}</p> <p class="name">${mensagens[i].name}</p><p class="text">${mensagens[i].text}</p>
+            </div>
+        </main>
+        <footer>
+            <input placeholder="Escreva aqui..." type="text">
+            <div onclick="enviarMensagem()" class="icone-aviao">
+                <ion-icon name="paper-plane-outline"></ion-icon>
+            </div>
+        </footer>
+    </div>
+    <div class="tela-inicial flex">
+        <div class="conteudo">
+            <div class="logo">
+                <img src="./images/logo-uol2.png" alt="logo uol">
+            </div>
+            <input class="input-nome" placeholder="Digite seu nome" type="text">
+            <p onclick="definirUsuario()" class="botao">Entrar</p>
+        </div>
+    </div>
+    
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
 </html>

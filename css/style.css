@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+
+.tela-inicial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+}
+.none{
+    display: none;
+}
+.flex{
+    display: flex;
+}
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.conteudo input{
+    width: 261px;
+    height: 54px;
+    border-radius: 5px;
+    margin: 100px 0px 15px 0px;
+    border: 1px solid #D7D7D7;
+    text-align: center;
+    color: black;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 400;
+}
+.conteudo input::placeholder{
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 400;
+}
+.conteudo .botao{
+    width: 109px;
+    height: 45px;
+    font-size: 18px;
+    line-height: 25px;
+    background-color: #E7E7E7;
+    color: #696969;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.conteudo .botao:hover{
+    background-color:#696969;
+    color: white;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    position: fixed;
+    top: 0px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+header div{
+    margin: 0px 22px;
+}
+.icone-contatos{
+    font-size: 42px;
+}
+
+main{
+    margin: 80px 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #E5E5E5;
+}
+.mensagem{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    margin: 3px 0px;
+}
+.reservadamente{
+    background-color: #FFDEDE;
+}
+.status{
+    background-color: #DCDCDC;
+}
+.padrao{
+    background-color: #ffffff;
+}
+.mensagem .hora{
+    color: #AAAAAA;
+}
+.mensagem .negrito{
+    font-weight: 700;
+}
+.mensagem p{
+    color: black;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+footer{
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 0px;
+    width: 100%;
+    height: 80px;
+    background-color: #ffffff;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+}
+footer input{
+    margin-left: 10px;
+    height: 50px;
+    width: 75%;
+    color: black;
+    outline: none;
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 400;
+
+}
+footer input::placeholder{
+    font-style: italic;
+}
+.icone-aviao{
+    font-size: 26px;
+    margin-right: 18px;
+}
