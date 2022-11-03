@@ -29,20 +29,20 @@ function exibirMensagens(resposta){
     }
 }
 function imprimirStatus(mensagem, div){
-    div.innerHTML += `<div class="mensagem status">
+    div.innerHTML += `<div data-test="message" class="mensagem status">
     <p class="hora">(${mensagem.time})</p>
     <p><span class="negrito">${mensagem.from}</span> ${mensagem.text}</p>
     </div>`;
 }
 function imprimirMensagem(mensagem, div){
-    div.innerHTML += `<div class="mensagem padrao">
+    div.innerHTML += `<div data-test="message" class="mensagem padrao">
         <p class="hora">(${mensagem.time})</p>
         <p><span class="negrito">${mensagem.from}</span> para 
             <span class="negrito">${mensagem.to}</span>: ${mensagem.text}</p>
         </div>`;
     }
 function imprimirMensagemReservadamente(mensagem, div){
-    div.innerHTML += `<div class="mensagem reservadamente">
+    div.innerHTML += `<div data-test="message" class="mensagem reservadamente">
         <p class="hora">(${mensagem.time})</p>
         <p><span class="negrito">${mensagem.from}</span> reservadamente para 
             <span class="negrito">${mensagem.to}</span>: ${mensagem.text}</p>
