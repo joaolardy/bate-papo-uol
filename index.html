@@ -37,8 +37,8 @@
             <div class="logo">
                 <img src="./images/logo-uol2.png" alt="logo uol">
             </div>
-            <input class="input-nome" placeholder="Digite seu nome" maxlength="20" type="text">
-            <p onclick="definirUsuario()" class="botao">Entrar</p>
+            <input data-test="input-name" class="input-nome" placeholder="Digite seu nome" maxlength="20" type="text">
+            <p data-test="send-name" onclick="definirUsuario()" class="botao">Entrar</p>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
